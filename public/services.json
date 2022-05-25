@@ -1,0 +1,61 @@
+[
+    {
+    
+      "name": "Disk Break",
+      "img": "https://htmldemo.net/lukas/lukas/assets/img/product/product-1.png",
+      "discription": " Commonly used braking systems",
+      "minimumOrderQuantity": 100,
+      "availableQuantity": 1000,
+      "price":2000
+    },
+    {
+      
+      "name": "Wheel Frame",
+      "img":"https://htmldemo.net/lukas/lukas/assets/img/product/product-2.png",
+      "discription": "TRAXXAS rims, Rustler 4X4 2.8 black (2) / TRX6772",
+      "minimumOrderQuantity": 100,
+      "availableQuantity": 2000,
+      "price":1000
+    },
+    {
+      
+      "name": "Car Steering",
+      "img":"https://htmldemo.net/lukas/lukas/assets/img/product/product-3.png",
+      "discription": "Occ Motorsport OCCVOL010 Steering Wheel - Black",
+      "minimumOrderQuantity": 100,
+      "availableQuantity": 3000,
+      "price":6000
+      
+    },
+    {
+     
+      "name": "Sensor",
+      "img":"https://htmldemo.net/lukas/lukas/assets/img/product/product-4.png",
+      "discription": "HELLA 6PU 009 121-451 Sensor, ignition pulse",
+      "minimumOrderQuantity": 100,
+      "availableQuantity": 4000,
+      "price":4000
+
+     
+    },
+    {
+     
+      "name": "Car Tire",
+      "img":"https://htmldemo.net/lukas/lukas/assets/img/product/product-11.png",
+      "discription": "Continental PremiumContact 619565 R15 91 V",
+      "minimumOrderQuantity": 100,
+      "availableQuantity": 4000,
+      "price":1500
+      
+    },
+    {
+      
+      "name": "cylinder block",
+      "img":"https://htmldemo.net/lukas/lukas/assets/img/product/product-7.png",
+      "discription": "REINZ 12-25837-03 Dichtungssatz, Ventilschaf",
+      "minimumOrderQuantity": 100,
+      "availableQuantity": 5000,
+      "price":11500
+      
+    }
+  ]
