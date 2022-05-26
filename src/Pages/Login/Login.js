@@ -1,13 +1,16 @@
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import React from 'react';
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 const Login = () => {
-    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-    const { register, formState: { errors }, handleSubmit } = useForm();
-    const onSubmit = {
-
+    const [signInWithGoogle, gUser, gloading, gError] = useSignInWithGoogle(auth);
+   
+    const { register, formState: { fErrors }, handleSubmit } = useForm();
+    const [signInWithEmailAndPassword,user,loading,error,] =useSignInWithEmailAndPassword(auth);
+    const onSubmit = data => {
+            signInWithEmailAndPassword(data.email,data.password)
     };
     if (error) {
         return (
@@ -20,11 +23,7 @@ const Login = () => {
          <p>Loading...</p>;
       }
       if (user) {
-        return (
-          <div>
-            <p>Signed In User: {user.email}</p>
-          </div>
-        );
+        
       }
     return (
         <div class="hero min-h-screen bg-base-200">
@@ -50,7 +49,7 @@ const Login = () => {
             <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
           </label>
         <button type="submit" class="btn btn-primary">Login</button> 
-        <p className='mt-2'>New to Get Gear? <Link className='text-primary'  to="/Singup"> Create New Account</Link></p>
+        <p className='mt-2'>New to Get Gear? <Link className='text-primary'  to="/signUp"> Create New Account</Link></p>
         </div>
          <div class="divider">OR</div>
           <button onClick={() => signInWithGoogle()} className='btn btn-primary'> Log In With Google</button>

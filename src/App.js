@@ -8,6 +8,7 @@ import Footer from './Pages/Shared/Footer/Footer';
 import Products from './Pages/Products/Products';
 import Reviews from './Pages/Reviews/Reviews';
 import Login from './Pages/Login/Login';
+import SignUp from './Pages/Login/SignUp';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/products" element={<Products></Products>} />
         <Route path="/reviews" element={<Reviews></Reviews>} />
         <Route path="/logIn" element={<Login></Login>} />
+        <Route path="/signUp" element={<SignUp></SignUp>} />
       </Routes>
       <Footer></Footer>
     </div>
