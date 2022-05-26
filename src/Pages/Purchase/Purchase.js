@@ -7,7 +7,7 @@ import auth from '../../firebase.init';
 const Purchase = () => {
     const [user, loading, error] = useAuthState(auth);
     const{id} = useParams()
-    const { register, formState: { formErrors }, handleSubmit } = useForm();
+    const { register,watch, formState: { formErrors }, handleSubmit } = useForm();
     const[purchasedetails,setpurchasedetailts]= useState([])
     useEffect(()=>{
         fetch(`http://localhost:5000/services/${id}`)
@@ -17,6 +17,9 @@ const Purchase = () => {
     if(loading){
         return <h1>loading</h1>
      }
+
+     const quantity =(watch("quantity"))
+     const totalPrice = quantity * purchasedetails.price
     const onSubmit = Udata => {
         console.log(Udata)
 };
@@ -45,13 +48,13 @@ const Purchase = () => {
                 <label class="label">
                   <span class="label-text">quantity (min:{purchasedetails.minimumOrderQuantity} max:{purchasedetails.availableQuantity})</span>
                 </label>
-                <input {...register("quantity", { min:purchasedetails.minimumOrderQuantity,max:purchasedetails.availableQuantity })} type="number" placeholder={`quantity`} class="input input-bordered"  />
+                <input  {...register("quantity", { min:purchasedetails.minimumOrderQuantity,max:purchasedetails.availableQuantity })} type="number" placeholder={`quantity`} class="input input-bordered"  />
               </div>
               <div class="form-control">
                 <label class="label">
                   <span class="label-text">Total Price </span>
                 </label>
-                <input {...register("totalPrice", { required: true })} type="number" placeholder="Total price" class="input input-bordered" />
+                <input {...register("totalPrice", { required: true })} type="number" placeholder="Total price" class="input input-bordered" value={totalPrice} readOnly/>
               </div>
               <div class="form-control">
                 <label class="label">
