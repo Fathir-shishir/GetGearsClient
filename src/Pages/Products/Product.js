@@ -1,8 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 
 const Product = ({product}) => {
-    const{img,name,discription,minimumOrderQuantity,price}=product
+    const{img,name,discription,minimumOrderQuantity,price,_id}=product
+    const navigate = useNavigate()
+   const  redirectPurchase =(id)=>{
+        navigate(`/puschase/${id}`)
+   }
     return (
     <div class="card  bg-base-100 shadow-xl">
      <figure><img src={img} alt="Shoes" /></figure>
@@ -12,7 +16,7 @@ const Product = ({product}) => {
     <p> Price : {price}</p>
     <p> Minimun Order Quentity : {minimumOrderQuantity}</p>
     <div class="flex justify-center mt-2 ">
-      <Link to="/about" class="btn btn-primary"> Buy Now</Link>
+      <button onClick={()=> redirectPurchase(_id)} class="btn btn-primary" > Buy Now</button>
     </div>
   </div> 
 </div>

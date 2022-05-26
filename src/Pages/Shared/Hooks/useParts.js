@@ -3,7 +3,7 @@ const { useState, useEffect } = require("react")
 const useParts= ()=>{
     const[products,setProducts]= useState([])
     useEffect(()=>{
-        fetch('services.json')
+        fetch('http://localhost:5000/services')
         .then(res=>res.json())
         .then(data=>setProducts(data))
     },[])

@@ -9,6 +9,7 @@ import Products from './Pages/Products/Products';
 import Reviews from './Pages/Reviews/Reviews';
 import Login from './Pages/Login/Login';
 import SignUp from './Pages/Login/SignUp';
+import Purchase from './Pages/Purchase/Purchase';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/reviews" element={<Reviews></Reviews>} />
         <Route path="/logIn" element={<Login></Login>} />
         <Route path="/signUp" element={<SignUp></SignUp>} />
+        <Route path="/puschase/:id" element={<Purchase></Purchase>} />
       </Routes>
       <Footer></Footer>
     </div>
