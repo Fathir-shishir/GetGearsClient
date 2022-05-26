@@ -1,5 +1,5 @@
 import React from 'react';
-import useParts from '../../Hooks/useParts';
+import useParts from '../Shared/Hooks/useParts';
 import Product from './Product';
 
 const Products = () => {
