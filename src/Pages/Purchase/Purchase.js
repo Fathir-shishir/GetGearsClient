@@ -7,7 +7,7 @@ import auth from '../../firebase.init';
 const Purchase = () => {
     const [user, loading, error] = useAuthState(auth);
     const{id} = useParams()
-    const { register,watch, formState: { formErrors }, handleSubmit } = useForm();
+    const { register,watch, formState: { formErrors }, handleSubmit,reset} = useForm();
     const[purchasedetails,setpurchasedetailts]= useState([])
     useEffect(()=>{
         fetch(`http://localhost:5000/services/${id}`)
@@ -30,7 +30,23 @@ const Purchase = () => {
             totalPrice : totalPrice,
             PhoneNumber : Udata.PhoneNo
         }
-        console.log(orderInfo)
+      console.log(orderInfo)
+      fetch("http://localhost:5000/orderDetails",{
+          method:"POST",
+          headers:{
+              "content-type":"application/json"
+          },
+          body:JSON.stringify(orderInfo)
+      })
+      .then(res=>res.json())
+      .then(data =>{
+        if(data.success){
+            console.log("succcess")
+        }
+      })
+
+      
+      reset()
 };
     return (
         <div class="hero min-h-screen bg-base-200">

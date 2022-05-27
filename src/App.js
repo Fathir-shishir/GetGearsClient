@@ -10,6 +10,9 @@ import Reviews from './Pages/Reviews/Reviews';
 import Login from './Pages/Login/Login';
 import SignUp from './Pages/Login/SignUp';
 import Purchase from './Pages/Purchase/Purchase';
+import Dashboad from './Pages/Dashboad/Dashboad';
+import MyOrder from './Pages/Dashboad/MyOrder';
+import MyProfile from './Pages/MyProfile/MyProfile';
 
 function App() {
   return (
@@ -25,6 +28,12 @@ function App() {
         <Route path="/logIn" element={<Login></Login>} />
         <Route path="/signUp" element={<SignUp></SignUp>} />
         <Route path="/puschase/:id" element={<Purchase></Purchase>} />
+       
+        <Route path="/dashboad" element={<Dashboad></Dashboad>} >
+        <Route index element={<MyOrder></MyOrder>} />
+        <Route path="myProfile" element={<MyProfile></MyProfile>} />
+        </Route>
+        
       </Routes>
       <Footer></Footer>
     </div>

@@ -32,6 +32,7 @@ const Navbar = () => {
       <li><Link to="/about">About</Link></li>
       <li><Link to="/products">Products</Link></li>
       <li><Link to="/reviews">Reviews</Link></li>
+      <li><Link to="/dashboad">Dashboad</Link></li>
       {
           user? <li><Link onClick={logout} to="/home">Log out <p>{user?.email}</p></Link></li> : <li><Link  to="/logIn">Log In</Link></li>
           
