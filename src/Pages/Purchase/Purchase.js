@@ -21,7 +21,16 @@ const Purchase = () => {
      const quantity =(watch("quantity"))
      const totalPrice = quantity * purchasedetails.price
     const onSubmit = Udata => {
-        console.log(Udata)
+        const orderInfo= {
+            orderId : purchasedetails._id,
+            userName : user.displayName,
+            productName : purchasedetails.name,
+            email : user.email,
+            quantity :quantity,
+            totalPrice : totalPrice,
+            PhoneNumber : Udata.PhoneNo
+        }
+        console.log(orderInfo)
 };
     return (
         <div class="hero min-h-screen bg-base-200">
@@ -32,17 +41,25 @@ const Purchase = () => {
             <form onSubmit={handleSubmit(onSubmit)} class="card-body">
             <div class="form-control">
                 <label class="label">
-                  <span class="label-text">Name</span>
+                  <span class="label-text">User Name</span>
                 </label>
-                <input {...register("name")} type="text" placeholder="name" class="input input-bordered" 
+                <input {...register("userName")} type="text" placeholder="name" class="input input-bordered" 
                 value={user?.displayName} 
+                />
+              </div>
+            <div class="form-control">
+                <label class="label">
+                  <span class="label-text">Product Name</span>
+                </label>
+                <input {...register("ProductName")} type="text" placeholder="name" class="input input-bordered" 
+                value={purchasedetails.name} 
                 />
               </div>
               <div class="form-control">
                 <label class="label">
                   <span class="label-text">Email</span>
                 </label>
-                <input  {...register("email")} type="email" placeholder={`email : ${user.email}`} class="input input-bordered" value={user.email} readOnly />
+                <input  {...register("email")} type="email" placeholder={`email : ${user?.email}`} class="input input-bordered" value={user?.email} readOnly />
               </div>
               <div class="form-control">
                 <label class="label">
@@ -54,7 +71,7 @@ const Purchase = () => {
                 <label class="label">
                   <span class="label-text">Total Price </span>
                 </label>
-                <input {...register("totalPrice", { required: true })} type="number" placeholder="Total price" class="input input-bordered" value={totalPrice} readOnly/>
+                <input {...register("totalPrice", )} type="number" placeholder="Total price" class="input input-bordered" value={totalPrice} readOnly/>
               </div>
               <div class="form-control">
                 <label class="label">
