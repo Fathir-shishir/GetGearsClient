@@ -13,6 +13,7 @@ import Purchase from './Pages/Purchase/Purchase';
 import Dashboad from './Pages/Dashboad/Dashboad';
 import MyOrder from './Pages/Dashboad/MyOrder';
 import MyProfile from './Pages/MyProfile/MyProfile';
+import Error404 from './Pages/Error/Error404';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         
       <Routes>
         <Route path="/" element={<Home></Home>} />
+        <Route path="*" element={<Error404></Error404>} />
         <Route path="/home" element={<Home></Home>} />
         <Route path="/about" element={<About></About>} />
         <Route path="/products" element={<Products></Products>} />
