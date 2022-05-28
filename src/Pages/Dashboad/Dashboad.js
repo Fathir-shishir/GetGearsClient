@@ -23,6 +23,7 @@ const Dashboad = () => {
       {/* <!-- Sidebar content here --> */}
       <li><Link to="/dashboad"> My Order</Link></li>
       <li><Link to="/dashboad/myProfile"> My Profile</Link></li>
+      {admin==0 && <li><Link to="/dashboad/addReview"> Add Review</Link></li>}
       {admin && <li><Link to="/dashboad/allUsers"> All Users</Link></li>}
       {admin && <li><Link to="/dashboad/addProducts"> Add Products</Link></li>}
     </ul>
