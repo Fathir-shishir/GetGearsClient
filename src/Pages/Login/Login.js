@@ -4,11 +4,13 @@ import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-fireba
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
+import useToken from '../Shared/Hooks/useToken';
 const Login = () => {
     const [signInWithGoogle, gUser, gloading, gError] = useSignInWithGoogle(auth);
    
     const { register, formState: { fErrors }, handleSubmit } = useForm();
     const [signInWithEmailAndPassword,user,loading,error,] =useSignInWithEmailAndPassword(auth);
+    const[token]=useToken(gUser||user)
     const onSubmit = data => {
             signInWithEmailAndPassword(data.email,data.password)
     };

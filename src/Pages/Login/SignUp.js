@@ -2,6 +2,7 @@ import React from 'react';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import auth from '../../firebase.init';
+import useToken from '../Shared/Hooks/useToken'
 
 const SignUp = () => {
     const [
@@ -12,9 +13,11 @@ const SignUp = () => {
       ] = useCreateUserWithEmailAndPassword(auth);
       const [updateProfile, updating, updatError] = useUpdateProfile(auth);
     const { register, formState: { formErrors }, handleSubmit } = useForm();
+    const [token]  = useToken(user);
     const onSubmit = async  data => {
         await  createUserWithEmailAndPassword(data.email,data.password)
         await updateProfile({ displayName : data.name});
+      
 };
     return (
         <div class="hero min-h-screen bg-base-200">
