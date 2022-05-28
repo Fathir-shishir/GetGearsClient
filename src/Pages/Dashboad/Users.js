@@ -31,7 +31,8 @@ const Users = () => {
         <th></th>
         <th>eamil</th>
         <th>role</th>
-        <th>Make a Role</th>
+        <th>Add Role</th>
+        <th>Delete a Role</th>
         
       </tr>
     </thead>

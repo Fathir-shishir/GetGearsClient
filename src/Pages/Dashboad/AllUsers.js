@@ -12,6 +12,15 @@ const AllUsers = ({user,refetch}) => {
            refetch() 
             console.log(data)})
       }
+    const deleteUser=()=>{
+        fetch(`http://localhost:5000/admin/${email}`,{
+            method : 'DELETE',
+        })
+        .then(res =>res.json())
+        .then(data =>{
+           refetch() 
+            console.log(data)})
+      }
     return (
         <tr>
 
@@ -19,6 +28,7 @@ const AllUsers = ({user,refetch}) => {
         <td>{email}</td>
         <td>{role}</td>
         <td><button onClick={makeAdmin} class="btn btn-xs">Make Admin</button></td>
+        <td><button onClick={deleteUser} class="btn btn-xs">Delete User</button></td>
        
       </tr>
     );
