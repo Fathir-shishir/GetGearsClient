@@ -15,6 +15,7 @@ import MyOrder from './Pages/Dashboad/MyOrder';
 import MyProfile from './Pages/MyProfile/MyProfile';
 import Error404 from './Pages/Error/Error404';
 import Users from './Pages/Dashboad/Users';
+import AddProducts from './Pages/Dashboad/AddProducts';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
         <Route index element={<MyOrder></MyOrder>} />
         <Route path="myProfile" element={<MyProfile></MyProfile>} />
         <Route path="allUsers" element={<Users></Users>} />
+        <Route path="addProducts" element={<AddProducts></AddProducts>} />
         </Route>
         
       </Routes>
