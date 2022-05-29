@@ -42,7 +42,7 @@ const MyOrder = () => {
         <td>{data.productName}</td>
         <td>{data.quantity}</td>
         <td>{data.totalPrice}</td>
-        <td>{!data.paid} <Link></Link></td>
+        {/* <td>{!data.paid} <Link></Link></td> */}
       </tr>)
       }
       
