@@ -22,6 +22,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import RequireAuth from './Pages/Shared/RequireAuth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './firebase.init';
+import Blogs from './Pages/Blogs/Blogs';
 
 function App() {
   const [user] = useAuthState(auth);
@@ -38,6 +39,7 @@ function App() {
         <Route path="/products" element={<Products></Products>} />
         <Route path="/reviews" element={<Reviews></Reviews>} />
         <Route path="/logIn" element={<Login></Login>} />
+        <Route path="/blogs" element={<Blogs></Blogs>} />
         <Route path="/signUp" element={<SignUp></SignUp>} />
         <Route path="/puschase/:id" element={
           <RequireAuth>
