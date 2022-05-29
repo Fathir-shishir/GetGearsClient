@@ -17,8 +17,15 @@ import Error404 from './Pages/Error/Error404';
 import Users from './Pages/Dashboad/Users';
 import AddProducts from './Pages/Dashboad/AddProducts';
 import AddReview from './Pages/Dashboad/AddReview';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import RequireAuth from './Pages/Shared/RequireAuth';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from './firebase.init';
 
 function App() {
+  const [user] = useAuthState(auth);
+ 
   return (
     <div>
         <Navbar></Navbar>
@@ -32,18 +39,23 @@ function App() {
         <Route path="/reviews" element={<Reviews></Reviews>} />
         <Route path="/logIn" element={<Login></Login>} />
         <Route path="/signUp" element={<SignUp></SignUp>} />
-        <Route path="/puschase/:id" element={<Purchase></Purchase>} />
+        <Route path="/puschase/:id" element={
+          <RequireAuth>
+            <Purchase></Purchase>
+          </RequireAuth>
+        } />
        
-        <Route path="/dashboad" element={<Dashboad></Dashboad>} >
-        <Route index element={<MyOrder></MyOrder>} />
-        <Route path="myProfile" element={<MyProfile></MyProfile>} />
-        <Route path="allUsers" element={<Users></Users>} />
-        <Route path="addProducts" element={<AddProducts></AddProducts>} />
-        <Route path="addReview" element={<AddReview></AddReview>} />
-        </Route>
+          user && <Route path="/dashboad" element={<Dashboad></Dashboad>} >
+          <Route index element={<MyOrder></MyOrder>} />
+          <Route path="myProfile" element={<MyProfile></MyProfile>} />
+          <Route path="allUsers" element={<Users></Users>} />
+          <Route path="addProducts" element={<AddProducts></AddProducts>} />
+          <Route path="addReview" element={<AddReview></AddReview>} />
+          </Route>
         
       </Routes>
       <Footer></Footer>
+      <ToastContainer />
     </div>
   );
 }

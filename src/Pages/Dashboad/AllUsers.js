@@ -1,5 +1,6 @@
 import { faRefresh } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
+import { toast } from 'react-toastify';
 
 const AllUsers = ({user,refetch}) => {
     const{_id,email,role}=user
@@ -9,8 +10,9 @@ const AllUsers = ({user,refetch}) => {
         })
         .then(res =>res.json())
         .then(data =>{
+            toast("successful");
            refetch() 
-            console.log(data)})
+            })
       }
     const deleteUser=()=>{
         fetch(`http://localhost:5000/admin/${email}`,{
@@ -18,6 +20,7 @@ const AllUsers = ({user,refetch}) => {
         })
         .then(res =>res.json())
         .then(data =>{
+            toast("successful");
            refetch() 
             console.log(data)})
       }

@@ -22,6 +22,12 @@ const Navbar = () => {
         <li><Link to="/home">Home</Link></li>
         <li> <Link to="/about">About</Link></li>
         <li> <Link to="/products">Products</Link></li>
+        <li><Link to="/reviews">Reviews</Link></li>
+      <li><Link to="/dashboad">Dashboad</Link></li>
+      {
+          user? <li><Link onClick={logout} to="/home">Log out <p>{user?.email}</p></Link></li> : <li><Link  to="/logIn">Log In</Link></li>
+          
+      }
       </ul>
     </div>
     <a class="btn btn-ghost normal-case text-xl"> Get||Gears</a>
@@ -29,10 +35,10 @@ const Navbar = () => {
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal p-0">
       <li> <Link to="/home">Home</Link> </li>
-      <li><Link to="/about">About</Link></li>
+      <li><Link to="/about">My Portfolio</Link></li>
       <li><Link to="/products">Products</Link></li>
       <li><Link to="/reviews">Reviews</Link></li>
-      <li><Link to="/dashboad">Dashboad</Link></li>
+     {user && <li><Link to="/dashboad">Dashboad</Link></li>}
       {
           user? <li><Link onClick={logout} to="/home">Log out <p>{user?.email}</p></Link></li> : <li><Link  to="/logIn">Log In</Link></li>
           

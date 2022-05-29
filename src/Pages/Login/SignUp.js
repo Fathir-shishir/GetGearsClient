@@ -1,6 +1,7 @@
 import React from 'react';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
+import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import useToken from '../Shared/Hooks/useToken'
 
@@ -11,14 +12,20 @@ const SignUp = () => {
         loading,
         error,
       ] = useCreateUserWithEmailAndPassword(auth);
+      let navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
       const [updateProfile, updating, updatError] = useUpdateProfile(auth);
     const { register, formState: { formErrors }, handleSubmit } = useForm();
     const [token]  = useToken(user);
     const onSubmit = async  data => {
         await  createUserWithEmailAndPassword(data.email,data.password)
         await updateProfile({ displayName : data.name});
-      
-};
+      }
+      if (user ) {
+        navigate(from,{replace:true})
+      }
+      ;
     return (
         <div class="hero min-h-screen bg-base-200">
        

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const MyProfile = () => {
@@ -17,9 +18,8 @@ const MyProfile = () => {
       })
       .then(res=>res.json())
       .then(data =>{
-        if(data.success){
-            console.log("succcess")
-        }
+        toast("successful");
+        reset()
       })
     }
     return (
@@ -54,7 +54,7 @@ const MyProfile = () => {
                 <label class="label">
                   <span class="label-text">Address</span>
                 </label>
-                <input {...register("address")} type="number" placeholder="Address" class="input input-bordered" />
+                <input {...register("address")} type="text" placeholder="Address" class="input input-bordered" />
               </div>
               <div class="form-control">
                 <label class="label">
