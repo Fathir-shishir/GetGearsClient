@@ -4,7 +4,7 @@ import AllUsers from './AllUsers';
 
 const Users = () => {
 
-    const {data:users,isLoading,refetch}=useQuery("users",()=>fetch('http://localhost:5000/user').then(res=>res.json()))
+    const {data:users,isLoading,refetch}=useQuery("users",()=>fetch('https://protected-hamlet-28459.herokuapp.com/user').then(res=>res.json()))
 
     if(isLoading){
         return <h1>Loading</h1>
@@ -14,7 +14,7 @@ const Users = () => {
     // const [allUsers,setallUsers]=useState([])
     // useEffect(()=>{
         
-    //       fetch('http://localhost:5000/user')
+    //       fetch('https://protected-hamlet-28459.herokuapp.com/user')
     //       .then(res=>res.json())
     //       .then(data => setallUsers(data))
         

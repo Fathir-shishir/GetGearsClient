@@ -13,7 +13,7 @@ const Product = ({product}) => {
   <div class="card-body">
     <h2 class="card-title">{name}</h2>
     <p>{discription}</p>
-    <p> Price : {price}</p>
+    <p> Price : $ {price}</p>
     <p> Minimun Order Quentity : {minimumOrderQuantity}</p>
     <div class="flex justify-center mt-2 ">
       <button onClick={()=> redirectPurchase(_id)} class="btn btn-primary" > Buy Now</button>

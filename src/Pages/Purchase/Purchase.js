@@ -10,7 +10,7 @@ const Purchase = () => {
     const { register,watch, formState: { formErrors }, handleSubmit,reset} = useForm();
     const[purchasedetails,setpurchasedetailts]= useState([])
     useEffect(()=>{
-        fetch(`http://localhost:5000/services/${id}`)
+        fetch(`https://protected-hamlet-28459.herokuapp.com/services/${id}`)
         .then(res=>res.json())
         .then(data=>setpurchasedetailts(data))
     },[id])
@@ -31,7 +31,7 @@ const Purchase = () => {
             PhoneNumber : Udata.PhoneNo
         }
       console.log(orderInfo)
-      fetch("http://localhost:5000/orderDetails",{
+      fetch("https://protected-hamlet-28459.herokuapp.com/orderDetails",{
           method:"POST",
           headers:{
               "content-type":"application/json"
