@@ -17,7 +17,7 @@ const Home = () => {
         <div>
            <Banner></Banner>
            <h1 className='text-5xl text-center text-bold mt-5'>Products</h1>
-          <div className='grid sm:grid-cols-1 lg:grid-cols-3 gap-3'>
+          <div className='grid sm:grid-cols-1 lg:grid-cols-3 gap-2 justify-items-center'>
               {
                 sampleProducts.map(product=><Product
                   product={product}

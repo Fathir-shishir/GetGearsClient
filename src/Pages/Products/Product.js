@@ -8,8 +8,14 @@ const Product = ({product}) => {
         navigate(`/puschase/${id}`)
    }
     return (
-    <div class="card  bg-base-100 shadow-xl">
-     <figure><img src={img} alt="Shoes" /></figure>
+
+     
+     
+    <div class="bg-base-100 shadow-xl transform transition duration-500 hover:scale-75 w-11/12">
+     
+     <div>
+     <figure><img  src={img} alt="products" /></figure>
+     </div>
   <div class="card-body">
     <h2 class="card-title">{name}</h2>
     <p>{discription}</p>
@@ -20,6 +26,8 @@ const Product = ({product}) => {
     </div>
   </div> 
 </div>
+
+ 
     );
 };
 
