@@ -11,7 +11,7 @@ const Review = ({review}) => {
     return (
         <div class="bg-base-100 shadow-xl  w-11/12">
       <div class="avatar">
-  <div class="w-24  rounded-full">
+  <div class="w-20  rounded-full">
     <img className='mx-auto' src={picture} />
   </div>
 </div>
@@ -21,14 +21,14 @@ const Review = ({review}) => {
       return <i class="fas fa-star"/>
      })} </p>
     <h2 class="card-title">{name}</h2>
-   { !isExpanded && <p>{comment.slice(0,200)}...</p>} 
+   { !isExpanded && <p>{comment.slice(0,150)}...</p>} 
     <section {...getCollapseProps()}>{comment}</section>
     <button
         {...getToggleProps({
           onClick: () => setExpanded((prevExpanded) => !prevExpanded),
         })}
       >
-        {isExpanded ? 'ReadLess' : 'Read More'}
+        {isExpanded ? <span className='btn btn-primary'> Read Less</span> : <span className='btn btn-primary'> Read More</span>}
       </button>
      
    
