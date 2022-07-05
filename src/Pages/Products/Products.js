@@ -5,7 +5,7 @@ import Product from './Product';
 const Products = () => {
     const[products,setProducts]= useParts([])
     return (
-        <div className=" grid  lg:grid-cols-2 gap-2  justify-items-center " >
+        <div className=" grid  lg:grid-cols-3 gap-2  justify-items-center " >
             {
                 products.map(product=> <Product
                 product ={product}
