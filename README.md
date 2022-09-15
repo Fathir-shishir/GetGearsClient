@@ -1,5 +1,5 @@
 # Intro
-**Live Website Link: [Love To Travel ](https://lovetotravel.netlify.app/)**  <br /><br />
+**Live Website Link: [Get Gears](https://lucent-platypus-0fa442.netlify.app/home)**  <br /><br />
 This project consist of two separate applications - <br />
 • Frontend <br />
 • Backend <br />
